@@ -39,6 +39,22 @@ def resolve_ties(highest_bidder, bid_dict):
           return bid_dict
                    
                    
+def main():
+    bid_dict = {}
+
+    bid_dict = collect_bid(bid_dict)
+
+    highest_bid, highest_bidder = get_highestbidder(bid_dict)
+
+    while len(highest_bidder) > 1:
+        bid_dict = resolve_ties(highest_bid, highest_bidder, bid_dict)
+        highest_bid, highest_bidder = get_highestbidder(bid_dict)
+
+    print(f"The winner is {highest_bidder[0]} with {highest_bid}.")  
+                
+            
+if __name__=="__main__":
+    main()
                    
                
     
